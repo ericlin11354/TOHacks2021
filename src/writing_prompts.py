@@ -1,6 +1,5 @@
 import os
 import openai
-import requests
 import random
 
 from api_key import push_key
@@ -29,15 +28,19 @@ def gen_text(content):
     return text
 
 
-push_key()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+def generate_prompts(number):
+    push_key()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
-file = "WP.txt"  # 172 lines
-with open(file) as f:
-    content_list = f.readlines()
+    file = "WP.txt"  # 172 lines
+    with open(file) as f:
+        content_list = f.readlines()
 
-for _ in range(5):
-    text_out = gen_text(content_list)
-    print("- " + text_out)
+    out = ""
+    for _ in range(number):
+        text_out = gen_text(content_list)
+        out += "- " + text_out + "\n"
+    return out
+
 
 
