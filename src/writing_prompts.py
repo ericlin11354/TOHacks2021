@@ -32,14 +32,14 @@ def generate_prompts(number):
     push_key()
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
-    file = "WP.txt"  # 172 lines
+    file = "src\WP.txt"  # 172 lines
     with open(file) as f:
         content_list = f.readlines()
 
-    out = ""
+    out = []
     for _ in range(number):
         text_out = gen_text(content_list)
-        out += "- " + text_out + "\n"
+        out.append(text_out)
     return out
 
 

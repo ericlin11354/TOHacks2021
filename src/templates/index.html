@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color:#c24e00; font-family: sans-serif" >
+    <center>
+        <h1>Bored? Generate Writing Prompts!</h1>  
+        <form action="generate1" method="post">
+            <p><button> Generate 1! </button>
+        </form>
+        <form action="generate5" method="post"">
+            <p><button> Generate 5! </button>
+        </form>
+        <div style="margin: 100px">
+            {% for x in results %}
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif">{{x}}</p>
+            {% endfor %}
+        </div>
+    </center>
+</body>
+</html>
